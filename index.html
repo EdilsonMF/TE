@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <header>
+        <nav id="navbar">
+            <div class="logo"></div>
+            <div class="menu-icon" id="menu-icon">☰</div>
+            <ul class="nav" id="nav-links">
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+            <input class="pristine" type="checkbox" name="toggle" value="on">
+        </nav>
+    </header>
+
+    <section id="about">
+        <h1>Sobre mí</h1>
+        <p>¡Hola! Soy un estudiante de 24 años en la Universidad Autónoma del Beni, donde actualmente curso el séptimo semestre. Desde que comencé mi carrera, he desarrollado una profunda pasión por la informatica, lo que me ha llevado a explorar diversas facetas de esta disciplina.
+
+            A lo largo de mi trayectoria académica, he tenido la oportunidad de trabajar en proyectos que me han permitido aplicar mis conocimientos en situaciones prácticas, y siempre busco aprender y crecer en cada experiencia. Me considero una persona curiosa, con un fuerte deseo de contribuir a mi comunidad y hacer una diferencia positiva en el mundo que me rodea.
+            
+            Además de mis estudios, disfruto de jugar videojuegos, lo que me ayuda a mantener un equilibrio entre mis responsabilidades académicas y mi vida personal. Estoy emocionado por lo que el futuro me depara y ansioso por seguir desarrollando mis habilidades y conocimientos.</p>
+    </section>
+
+    <section id="projects">
+        <h1>Proyectos</h1>
+        <div class="carousel" id="carousel">
+            <img src="proyecto1.jpg" alt="Proyecto 1">
+            <img src="proyecto2.jpg" alt="Proyecto 2">
+            <img src="proyecto3.jpg" alt="Proyecto 3">
+        </div>
+        <div class="project-tooltip" id="project-tooltip"></div>
+    </section>
+
+    <section id="contact">
+        <h1>Contacto</h1>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Nombre" required>
+            <input type="email" id="email" placeholder="Correo" required>
+            <textarea id="message" placeholder="Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

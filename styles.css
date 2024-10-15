@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Titillium Web', sans-serif; /* Usando la nueva fuente */
+    line-height: 1.6;
+    background-color: #212121; /* Fondo oscuro */
+    color: #fff; /* Color del texto blanco */
+    padding: 50px 0; /* Espaciado superior e inferior */
+}
+
+header {
+    background: #333; /* Fondo del encabezado */
+    color: #fff; /* Color del texto en el encabezado */
+}
+
+nav {
+    display: flex;
+    justify-content: center; /* Centrado de los elementos de navegación */
+    padding: 1rem;
+}
+
+.nav {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.nav * {
+    box-sizing: border-box;
+    transition: all .35s ease;
+}
+
+.nav li {
+    display: inline-block;
+    list-style: none; /* Sin estilo de lista */
+    margin: .5em 1em; /* Margen entre elementos */
+}
+
+.nav a {
+    padding: .5em .8em;
+    color: rgba(255, 255, 255, .5);
+    position: relative;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav a::before,
+.nav a::after {
+    content: '';
+    height: 14px;
+    width: 14px;
+    position: absolute;
+    transition: all .35s ease;
+    opacity: 0;
+}
+
+.nav a::before {
+    right: 0;
+    top: 0;
+    border-top: 3px solid #3E8914;
+    border-right: 3px solid #2E640F;
+    transform: translate(-100%, 50%);
+}
+
+.nav a:after {
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid #2E640F;
+    border-left: 3px solid #3E8914;
+    transform: translate(100%, -50%);
+}
+
+.nav a:hover:before,
+.nav a:hover:after {
+    transform: translate(0, 0);
+    opacity: 1;
+}
+
+.nav a:hover {
+    color: #3DA35D; /* Color al pasar el ratón */
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+section {
+    padding: 2rem;
+    margin: 1rem;
+    background: #fff; /* Fondo blanco para secciones */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.carousel {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 300px; /* Altura fija del carrusel */
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la relación de aspecto sin distorsionarse */
+    flex-shrink: 0; /* Evita que las imágenes se reduzcan */
+    transition: transform 0.5s ease; /* Transición suave al cambiar la imagen */
+}
+
+input[type=checkbox] {
+    --off: #c7cad1;
+    --mid: #829ad6;
+    --on: #255ff4;
+    --transDur: 0.5s;
+    --timing: cubic-bezier(0.6, 0, 0.4, 1);
+    animation: bgOff var(--transDur) var(--timing);
+    background-color: var(--off);
+    border-radius: 0.67em / 0.5em;
+    box-shadow: 0 0.05em 0.1em #00000007 inset, 0 -0.25em 0.25em #0001 inset, 0 -0.5em 0 #0001 inset, 0 0.1em 0.1em #0001;
+    cursor: pointer;
+    position: relative;
+    width: 2.25em;
+    height: 1.5em;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type=checkbox]:before {
+    animation: handleOff var(--transDur) var(--timing);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0.125em;
+    left: 0.125em;
+    width: 1em;
+    height: 0.75em;
+    border-radius: 0.5em / 0.375em;
+    box-shadow: 0 0.175em 0.175em 0 #0001 inset, 0 0.375em 0 #0002 inset, 0 0.375em 0 var(--off) inset, 0 0.475em 0.1em #0001 inset;
+}
+
+input[type=checkbox]:checked {
+    animation: bgOn var(--transDur) var(--timing) forwards;
+}
+
+input[type=checkbox]:checked:before {
+    animation: handleOn var(--transDur) var(--timing) forwards;
+}
+
+input[type=checkbox]:focus {
+    outline: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    input[type=checkbox]:before {
+        background-image: linear-gradient(90deg,#3a3d46 2px,#3a3d4600 2px), linear-gradient(#3a3d46 2px,#2e3138 2px);
+    }
+    input[type=checkbox] {
+        --off: #5c6270;
+        --mid: #3d5fb6;
+    }
+}
+
+/* Animaciones */
+@keyframes bgOff {
+    from { background-color: var(--on); }
+    50% { background-color: var(--mid); }
+    to { background-color: var(--off); }
+}
+
+@keyframes bgOn {
+    from { background-color: var(--off); }
+    50% { background-color: var(--mid); }
+    to { background-color: var(--on); }
+}
+
+@keyframes handleOff {
+    from { left: 1.125em; width: 1em; }
+    50% { left: 0.125em; width: 2em; }
+    to { left: 0.125em; width: 1em; }
+}
+
+@keyframes handleOn {
+    from { left: 0.125em; width: 1em; }
+    50% { left: 0.125em; width: 2em; }
+    to { left: 1.125em; width: 1em; }
+}
+
+/* Tema oscuro */
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-theme header {
+    background-color: #444;
+}
+
+.dark-theme .nav-links a {
+    color: #fff;
+}
+
+.dark-theme section {
+    background: #444;
+    color: #fff;
+}
+
+.dark-theme button {
+    background-color: #555;
+    color: #fff;
+}
